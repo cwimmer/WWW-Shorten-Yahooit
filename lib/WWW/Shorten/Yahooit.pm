@@ -37,7 +37,7 @@ sub makeashorterlink{
     my $url = shift or croak 'No URL passed to makeashorterlink';
     my $yql = WWW::YQL->new();
 
-    my $data = $yql->query("insert into yahoo.y.ahoo.it (url) values ('http://search.cpan.org/~cwimmer/')");
+    my $data = $yql->query("insert into yahoo.y.ahoo.it (url) values ('".$url."')");
 
     return $data->{'query'}->{'results'}->{'url'};
 }

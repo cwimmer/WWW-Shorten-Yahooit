@@ -1,4 +1,7 @@
 {{$NEXT}}
 
+0.002
+- Fixed bug with missing variable.
+
 0.001    
 - Initial revision includes select and insert functionality with tests.
