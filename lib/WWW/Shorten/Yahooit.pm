@@ -38,8 +38,11 @@ sub makeashorterlink{
     my $yql = WWW::YQL->new();
 
     my $data = $yql->query("insert into yahoo.y.ahoo.it (url) values ('".$url."')");
-
-    return $data->{'query'}->{'results'}->{'url'};
+    if (defined $data->{'query'}->{'results'}->{'error'}){
+	die $data->{'query'}->{'results'}->{'error'};
+    }else{
+	return $data->{'query'}->{'results'}->{'url'};
+    }
 }
 
 =method makealongerlink
@@ -53,7 +56,10 @@ sub makealongerlink{
     my $url = shift or croak 'No URL passed to makeashorterlink';
     my $yql = WWW::YQL->new();
     my $data = $yql->query("select * from yahoo.y.ahoo.it where url='".$url."'");
-    return $data->{'query'}->{'results'}->{'url'};
-
+    if (defined $data->{'query'}->{'results'}->{'error'}){
+	die $data->{'query'}->{'results'}->{'error'};
+    }else{
+	return $data->{'query'}->{'results'}->{'url'};
+    }
 }
 1;
