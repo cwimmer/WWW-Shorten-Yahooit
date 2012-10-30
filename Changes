@@ -1,5 +1,6 @@
 {{$NEXT}}
-- Created explicit dependence on WWW::Shorten::generi
+- Fixed a new failure in testing.  Yahoo! no longer permits shortening URLs which redirect with a 3xx HTTP response code.
+- Created explicit dependence on WWW::Shorten::generic.
 
 0.002
 - Fixed bug with missing variable.
